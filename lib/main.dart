@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop/pages/product_list_page.dart';
 
 void main() {
   runApp(const ShopApp());
@@ -13,13 +14,13 @@ class ShopApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Scaffold(
-        body: Center(
-          child: Text("data"),
+        primarySwatch: Colors.purple,
+        fontFamily: "Lato",
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.purple,
         ),
       ),
+      home: ProductListPage(),
     );
   }
 }
