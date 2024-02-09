@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/constant/app_routes.dart';
+import 'package:shop/models/cart.dart';
 import 'package:shop/models/product_list.dart';
 
 import '../components/product_grid.dart';
@@ -36,6 +38,17 @@ class ProductsOverViewPage extends StatelessWidget {
               else
                 {productList.showAll()}
             },
+          ),
+          Consumer<Cart>(
+            builder: (context, cart, child) => Badge.count(
+              count: cart.itemsCount,
+              child: IconButton(
+                icon: const Icon(Icons.shopping_cart),
+                onPressed: () {
+                  Navigator.of(context).pushNamed(AppRoutes.cartPage);
+                },
+              ),
+            ),
           )
         ],
       ),
